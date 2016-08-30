@@ -9,21 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var platform_browser_1 = require('@angular/platform-browser');
-var app_component_1 = require('./app.component');
-var account_component_1 = require('./account.component');
-var AppModule = (function () {
-    function AppModule() {
+var TransactionService = (function () {
+    function TransactionService() {
     }
-    AppModule = __decorate([
-        core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule],
-            declarations: [app_component_1.AppComponent, account_component_1.AccountComponent],
-            bootstrap: [app_component_1.AppComponent]
-        }), 
+    TransactionService.prototype.getTransactions = function () {
+        console.log('getting tranactions');
+        var tx1 = { id: '1', type: 'BPay', amount: 10, accountId: '46012345678' };
+        var tx2 = { id: '2', type: 'BPay', amount: 20, accountId: '46012345678' };
+        return Promise.resolve([tx1, tx2]);
+    };
+    TransactionService = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], AppModule);
-    return AppModule;
+    ], TransactionService);
+    return TransactionService;
 }());
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+exports.TransactionService = TransactionService;
+//# sourceMappingURL=transaction.service.js.map

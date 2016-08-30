@@ -12,10 +12,13 @@ var core_1 = require('@angular/core');
 var AppComponent = (function () {
     function AppComponent() {
     }
+    AppComponent.prototype.setAccount = function () {
+        this.thisUal = "46012344433";
+    };
     AppComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            template: '<h1>My First Angular 2 App</h1>'
+            selector: 'hello-angular2',
+            template: "<h1>Accounts</h1>\n  <account ual={{thisUal}}></account>\n  <button (click)=\"setAccount()\">Set Account</button>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
