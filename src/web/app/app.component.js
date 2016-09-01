@@ -18,7 +18,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'hello-angular2',
-            template: "\n  <div class=\"component-app\">\n  <h1>Accounts</h1>\n  <account ual={{thisUal}}></account>\n  <button class=\"btn btn-primary\" (click)=\"setAccount()\">Set Account</button>\n  </div>\n  "
+            template: "\n  <div class=\"component-app\">\n    <h1>Accounts</h1>\n\n    <div>\n      <div class=\"input-group\">\n        <input type=\"text\" class=\"form-control\" placeholder=\"Account Id\">\n        <span class=\"input-group-btn\">\n          <button class=\"btn btn-default\" (click)=\"setAccount()\">Set Account</button>\n        </span>\n      </div>\n    </div>\n    <div class=\"row\">\n      <account ual={{thisUal}}></account>\n      <account ual={{thisUal}}></account>\n    </div>\n  \n  </div>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
