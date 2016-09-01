@@ -12,3 +12,13 @@ h2, h3 {
 body {
   margin: 2em;
 }
+
+.component-app {
+  background-color: #2ba6cb;
+  padding: 0 90px;
+}
+
+.component-account {
+  background-color: #d9b3ff;
+  padding: 0 90px;
+}

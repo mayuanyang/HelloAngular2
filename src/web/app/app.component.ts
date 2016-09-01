@@ -2,9 +2,12 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'hello-angular2',
-  template: `<h1>Accounts</h1>
+  template: `
+  <div class="component-app">
+  <h1>Accounts</h1>
   <account ual={{thisUal}}></account>
-  <button (click)="setAccount()">Set Account</button>
+  <button class="btn btn-primary" (click)="setAccount()">Set Account</button>
+  </div>
   `
 })
 export class AppComponent { 

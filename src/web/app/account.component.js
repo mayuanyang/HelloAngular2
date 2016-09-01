@@ -29,7 +29,7 @@ var AccountComponent = (function () {
     AccountComponent = __decorate([
         core_1.Component({
             selector: 'account',
-            template: "<h1>Account {{ual}} <button (click)=\"showTransactions()\">Show Transactions</button></h1>\n  <table>\n    <tr *ngFor=\"let tx of transactions\">\n      <td>{{tx.id}}</td>\n      <td>{{tx.type}}</td>\n      <td>{{tx.amount}}</td>\n    </tr>\n  </table>\n  ",
+            template: "\n  <div class=\"component-account\">\n  <h3>{{ual}} </h3>\n  <button class=\"btn btn-primary\" (click)=\"showTransactions()\">Show Transactions</button>\n  <table class=\"table table-bordered\">\n    <tr *ngFor=\"let tx of transactions\">\n      <td>{{tx.id}}</td>\n      <td>{{tx.type}}</td>\n      <td>{{tx.amount}}</td>\n    </tr>\n  </table>\n  </div>\n  ",
             providers: [transaction_service_1.TransactionService]
         }), 
         __metadata('design:paramtypes', [transaction_service_1.TransactionService])

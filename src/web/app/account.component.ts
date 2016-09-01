@@ -4,14 +4,18 @@ import { TransactionService } from './transaction.service';
 
 @Component({
   selector: 'account',
-  template: `<h1>Account {{ual}} <button (click)="showTransactions()">Show Transactions</button></h1>
-  <table>
+  template: `
+  <div class="component-account">
+  <h3>{{ual}} </h3>
+  <button class="btn btn-primary" (click)="showTransactions()">Show Transactions</button>
+  <table class="table table-bordered">
     <tr *ngFor="let tx of transactions">
       <td>{{tx.id}}</td>
       <td>{{tx.type}}</td>
       <td>{{tx.amount}}</td>
     </tr>
   </table>
+  </div>
   `,
   providers: [TransactionService]
 })
