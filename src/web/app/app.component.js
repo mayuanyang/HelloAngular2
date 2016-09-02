@@ -12,13 +12,13 @@ var core_1 = require('@angular/core');
 var AppComponent = (function () {
     function AppComponent() {
     }
-    AppComponent.prototype.setAccount = function () {
+    AppComponent.prototype.search = function () {
         this.thisUal = "46012344433";
     };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'hello-angular2',
-            template: "\n  <div class=\"component-app\">\n    <h1>Accounts</h1>\n\n    <div>\n      <div class=\"input-group\">\n        <input type=\"text\" class=\"form-control\" placeholder=\"Account Id\">\n        <span class=\"input-group-btn\">\n          <button class=\"btn btn-default\" (click)=\"setAccount()\">Set Account</button>\n        </span>\n      </div>\n    </div>\n    <div class=\"row\">\n      <account ual={{thisUal}}></account>\n      <account ual={{thisUal}}></account>\n    </div>\n  \n  </div>\n  "
+            template: "\n  <div class=\"component-app\">\n    <h1>Accounts</h1>\n\n    <div>\n      <div class=\"input-group\">\n        <input type=\"text\" class=\"form-control\" placeholder=\"Account Id\" [(ngModel)]=\"thisUal\">\n        <span class=\"input-group-btn\">\n          <button class=\"btn btn-default\" (click)=\"search()\">Search</button>\n        </span>\n      </div>\n    </div>\n    <div class=\"row\">\n      <account ual={{thisUal}}></account>\n    </div>\n    <div class=\"row\">\n      <div class=\"col-md-6\">\n      aa\n      </div>\n      <div class=\"col-md-6\">\n      bb\n      </div>\n    </div>\n  \n  </div>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

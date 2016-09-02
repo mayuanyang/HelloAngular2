@@ -14,10 +14,21 @@ var AccountComponent = (function () {
     function AccountComponent(txService) {
         this.txService = txService;
     }
+    AccountComponent.prototype.ngOnChanges = function (changes) {
+        this.searchTransactions(changes['ual'].currentValue);
+    };
     AccountComponent.prototype.showTransactions = function () {
         var _this = this;
         console.log('hello ' + this.ual);
         this.txService.getTransactions()
+            .then(function (data) {
+            _this.transactions = data;
+        });
+    };
+    AccountComponent.prototype.searchTransactions = function (phrase) {
+        var _this = this;
+        //console.log(`searching for ${phrase}`);
+        this.txService.search(phrase)
             .then(function (data) {
             _this.transactions = data;
         });
@@ -29,7 +40,7 @@ var AccountComponent = (function () {
     AccountComponent = __decorate([
         core_1.Component({
             selector: 'account',
-            template: "\n  <div class=\"component-account\">\n  <h3>{{ual}} </h3>\n  <button class=\"btn btn-primary\" (click)=\"showTransactions()\">Show Transactions</button>\n  <table class=\"table table-bordered\">\n    <tr *ngFor=\"let tx of transactions\">\n      <td>{{tx.id}}</td>\n      <td>{{tx.type}}</td>\n      <td>{{tx.amount}}</td>\n    </tr>\n  </table>\n  </div>\n  ",
+            template: "\n  <div class=\"component-account\">\n  <h3>{{ual}} </h3>\n  <button class=\"btn btn-primary\" (click)=\"showTransactions()\">Show All Transactions</button>\n  <table class=\"table table-bordered\">\n  <tr>\n    <th>Account Id</th>\n    <th>Payment Type</th>\n    <th>Amount</th>\n  </tr>\n    <tr *ngFor=\"let tx of transactions\">\n      <td>{{tx.accountId}}</td>\n      <td>{{tx.type}}</td>\n      <td>{{tx.amount}}</td>\n    </tr>\n  </table>\n  </div>\n  ",
             providers: [transaction_service_1.TransactionService]
         }), 
         __metadata('design:paramtypes', [transaction_service_1.TransactionService])

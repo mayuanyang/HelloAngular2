@@ -9,18 +9,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var http_1 = require('@angular/http');
+require('rxjs/add/operator/toPromise');
 var TransactionService = (function () {
-    function TransactionService() {
+    function TransactionService(http) {
+        this.http = http;
+        this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        this.webapiUrl = 'app/transactions';
     }
     TransactionService.prototype.getTransactions = function () {
-        console.log('getting tranactions');
-        var tx1 = { id: '1', type: 'BPay', amount: 10, accountId: '46012345678' };
-        var tx2 = { id: '2', type: 'BPay', amount: 20, accountId: '46012345678' };
-        return Promise.resolve([tx1, tx2]);
+        return this.http.get(this.webapiUrl)
+            .toPromise()
+            .then(function (response) { return response.json().data; })
+            .catch(this.handleError);
+    };
+    TransactionService.prototype.search = function (term) {
+        return this.http
+            .get(this.webapiUrl + ("?accountId=" + term))
+            .toPromise()
+            .then(function (response) { return response.json().data; })
+            .catch(this.handleError);
+    };
+    TransactionService.prototype.handleError = function (error) {
+        console.error('An error occurred', error);
+        return Promise.reject(error.message || error);
     };
     TransactionService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [http_1.Http])
     ], TransactionService);
     return TransactionService;
 }());

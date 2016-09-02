@@ -1,14 +1,35 @@
 import { Injectable } from '@angular/core';
 import { Transaction } from './transaction';
+import { Headers, Http } from '@angular/http';
+import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class TransactionService {
        
+        private headers = new Headers({'Content-Type': 'application/json'});
+       private webapiUrl = 'app/transactions';
+       
+       constructor(private http: Http) { }
+       
   getTransactions(): Promise<Transaction[]> {
-      console.log('getting tranactions');
-      var tx1 : Transaction = {id: '1', type: 'BPay', amount: 10, accountId : '46012345678'};
-      var tx2 : Transaction = {id: '2', type: 'BPay', amount: 20, accountId : '46012345678'};
+          
+    return this.http.get(this.webapiUrl)
+               .toPromise()
+               .then(response => response.json().data as Transaction[])
+               .catch(this.handleError);
+  }
+  
+  search(term: string): Promise<Transaction[]> {
       
-    return Promise.resolve([tx1, tx2]);
+    return this.http
+               .get(this.webapiUrl + `?accountId=${term}`)
+               .toPromise()
+               .then(response => response.json().data as Transaction[])
+               .catch(this.handleError);
+  }
+  
+  private handleError(error: any): Promise<any> {
+    console.error('An error occurred', error); 
+    return Promise.reject(error.message || error);
   }
 }
