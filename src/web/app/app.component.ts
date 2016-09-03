@@ -3,9 +3,10 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'hello-angular2',
   template: `
-  <div class="component-app">
-    <h1>Accounts</h1>
-
+  <div class="container">
+  <div class="panel panel-primary">
+  <div class="panel-heading">App Component</div>
+  <div class="panel-body">
     <div>
       <div class="input-group">
         <input type="text" class="form-control" placeholder="Account Id" [(ngModel)]="thisUal">
@@ -25,8 +26,10 @@ import { Component, Input } from '@angular/core';
       bb
       </div>
     </div>
-  
   </div>
+  </div>
+</div>
+
   `
 })
 export class AppComponent { 

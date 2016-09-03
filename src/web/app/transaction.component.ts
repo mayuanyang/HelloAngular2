@@ -5,7 +5,11 @@ import { TransactionService } from './transaction.service';
 @Component({
   selector: 'account',
   template: `
-  <div class="component-account">
+  <div class="col-md-12">
+  <div class="panel panel-info">
+  <div class="panel-heading">Account Component</div>
+  <div class="panel-body">
+    
   <h3>{{ual}} </h3>
   <button class="btn btn-primary" (click)="showTransactions()">Show All Transactions</button>
   <table class="table table-bordered">
@@ -21,10 +25,13 @@ import { TransactionService } from './transaction.service';
     </tr>
   </table>
   </div>
+</div>
+</div>
+    
   `,
   providers: [TransactionService]
 })
-export class AccountComponent implements OnChanges{ 
+export class TransactionComponent implements OnChanges{ 
     @Input() ual : string;
     transactions : Transaction[];
     

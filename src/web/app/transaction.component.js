@@ -10,14 +10,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var transaction_service_1 = require('./transaction.service');
-var AccountComponent = (function () {
-    function AccountComponent(txService) {
+var TransactionComponent = (function () {
+    function TransactionComponent(txService) {
         this.txService = txService;
     }
-    AccountComponent.prototype.ngOnChanges = function (changes) {
+    TransactionComponent.prototype.ngOnChanges = function (changes) {
         this.searchTransactions(changes['ual'].currentValue);
     };
-    AccountComponent.prototype.showTransactions = function () {
+    TransactionComponent.prototype.showTransactions = function () {
         var _this = this;
         console.log('hello ' + this.ual);
         this.txService.getTransactions()
@@ -25,7 +25,7 @@ var AccountComponent = (function () {
             _this.transactions = data;
         });
     };
-    AccountComponent.prototype.searchTransactions = function (phrase) {
+    TransactionComponent.prototype.searchTransactions = function (phrase) {
         var _this = this;
         //console.log(`searching for ${phrase}`);
         this.txService.search(phrase)
@@ -36,16 +36,16 @@ var AccountComponent = (function () {
     __decorate([
         core_1.Input(), 
         __metadata('design:type', String)
-    ], AccountComponent.prototype, "ual", void 0);
-    AccountComponent = __decorate([
+    ], TransactionComponent.prototype, "ual", void 0);
+    TransactionComponent = __decorate([
         core_1.Component({
             selector: 'account',
-            template: "\n  <div class=\"component-account\">\n  <h3>{{ual}} </h3>\n  <button class=\"btn btn-primary\" (click)=\"showTransactions()\">Show All Transactions</button>\n  <table class=\"table table-bordered\">\n  <tr>\n    <th>Account Id</th>\n    <th>Payment Type</th>\n    <th>Amount</th>\n  </tr>\n    <tr *ngFor=\"let tx of transactions\">\n      <td>{{tx.accountId}}</td>\n      <td>{{tx.type}}</td>\n      <td>{{tx.amount}}</td>\n    </tr>\n  </table>\n  </div>\n  ",
+            template: "\n  <div class=\"col-md-12\">\n  <div class=\"panel panel-info\">\n  <div class=\"panel-heading\">Account Component</div>\n  <div class=\"panel-body\">\n    \n  <h3>{{ual}} </h3>\n  <button class=\"btn btn-primary\" (click)=\"showTransactions()\">Show All Transactions</button>\n  <table class=\"table table-bordered\">\n  <tr>\n    <th>Account Id</th>\n    <th>Payment Type</th>\n    <th>Amount</th>\n  </tr>\n    <tr *ngFor=\"let tx of transactions\">\n      <td>{{tx.accountId}}</td>\n      <td>{{tx.type}}</td>\n      <td>{{tx.amount}}</td>\n    </tr>\n  </table>\n  </div>\n</div>\n</div>\n    \n  ",
             providers: [transaction_service_1.TransactionService]
         }), 
         __metadata('design:paramtypes', [transaction_service_1.TransactionService])
-    ], AccountComponent);
-    return AccountComponent;
+    ], TransactionComponent);
+    return TransactionComponent;
 }());
-exports.AccountComponent = AccountComponent;
-//# sourceMappingURL=account.component.js.map
+exports.TransactionComponent = TransactionComponent;
+//# sourceMappingURL=transaction.component.js.map
