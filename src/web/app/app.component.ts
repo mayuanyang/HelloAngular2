@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'hello-angular2',
+  selector: 'angular2-60mins',
   template: `
   <div class="container">
   <div class="panel panel-primary">
@@ -16,7 +16,7 @@ import { Component, Input } from '@angular/core';
       </div>
     </div>
     <div class="row">
-      <account ual={{thisUal}}></account>
+      <transactions ual={{thisUal}}></transactions>
     </div>
     <div class="row">
       <div class="col-md-6">

@@ -3,7 +3,7 @@ import { Transaction } from './transaction';
 import { TransactionService } from './transaction.service';
 
 @Component({
-  selector: 'account',
+  selector: 'transactions',
   template: `
   <div class="col-md-12">
   <div class="panel panel-info">
@@ -17,11 +17,13 @@ import { TransactionService } from './transaction.service';
     <th>Account Id</th>
     <th>Payment Type</th>
     <th>Amount</th>
+    <th></th>
   </tr>
     <tr *ngFor="let tx of transactions">
       <td>{{tx.accountId}}</td>
       <td>{{tx.type}}</td>
       <td>{{tx.amount}}</td>
+      <td>Details</td>
     </tr>
   </table>
   </div>
