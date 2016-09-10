@@ -22,7 +22,7 @@ import { TransactionService } from './transaction.service';
     <tr *ngFor="let tx of transactions">
       <td>{{tx.accountId}}</td>
       <td>{{tx.type}}</td>
-      <td>{{tx.amount}}</td>
+      <td>{{tx.amount | currency : 'AUD' | lowercase }}</td>
       <td>Details</td>
     </tr>
   </table>

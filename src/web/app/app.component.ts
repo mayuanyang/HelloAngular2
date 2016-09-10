@@ -20,7 +20,7 @@ import { Component, Input } from '@angular/core';
     </div>
     <div class="row">
       <div class="col-md-6">
-      aa
+      <observable-simple></observable-simple>
       </div>
       <div class="col-md-6">
       bb

@@ -13,6 +13,7 @@ var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
 var app_component_1 = require('./app.component');
 var transaction_component_1 = require('./transaction.component');
+var observable_simple_component_1 = require('./observable-simple.component');
 var http_1 = require('@angular/http');
 var angular2_in_memory_web_api_1 = require('angular2-in-memory-web-api');
 var transaction_data_service_1 = require('./transaction-data.service');
@@ -27,7 +28,7 @@ var AppModule = (function () {
                 http_1.HttpModule,
                 angular2_in_memory_web_api_1.InMemoryWebApiModule.forRoot(transaction_data_service_1.TransactionDataService),
             ],
-            declarations: [app_component_1.AppComponent, transaction_component_1.TransactionComponent],
+            declarations: [app_component_1.AppComponent, transaction_component_1.TransactionComponent, observable_simple_component_1.ObservableSimpleComponent],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])
