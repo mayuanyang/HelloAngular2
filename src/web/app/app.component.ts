@@ -7,9 +7,8 @@ import { Component, Input } from '@angular/core';
   <div class="panel panel-primary">
   <div class="panel-heading">App Component</div>
   <div class="panel-body">
-    <div class="row">
+    <div class="col-md-12">
       <transactions></transactions>
-      xxxxxx
     </div>
     <div class="row">
       <div class="col-md-6">
