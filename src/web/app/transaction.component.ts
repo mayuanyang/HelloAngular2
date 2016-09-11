@@ -1,6 +1,7 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Transaction } from './transaction';
 import { TransactionService } from './transaction.service';
+import { TransactionDataService } from './transaction-data.service';
 
 @Component({
   selector: 'transactions',
@@ -9,31 +10,30 @@ import { TransactionService } from './transaction.service';
   <div class="panel panel-info">
   <div class="panel-heading">Account Component</div>
   <div class="panel-body">
-    
-  <h3>{{ual}} </h3>
-  <button class="btn btn-primary" (click)="showTransactions()">Show All Transactions</button>
-  <table class="table table-bordered">
-  <tr>
-    <th>Account Id</th>
-    <th>Payment Type</th>
-    <th>Amount</th>
-    <th></th>
-  </tr>
-    <tr *ngFor="let tx of transactions">
-      <td>{{tx.accountId}}</td>
-      <td>{{tx.type}}</td>
-      <td>{{tx.amount | currency : 'AUD' | lowercase }}</td>
-      <td>Details</td>
-    </tr>
-  </table>
+  
+    <button class="btn btn-primary" (click)="showTransactions()">Show All Transactions</button>
+    <table class="table table-bordered">
+      <tr>
+        <th>Account Id</th>
+        <th>Payment Type</th>
+        <th>Amount</th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let tx of transactions">
+        <td>{{tx.accountId}}</td>
+        <td>{{tx.type}}</td>
+        <td>{{tx.amount | currency : 'AUD' | lowercase }}</td>
+        <td>Details</td>
+      </tr>
+    </table>
   </div>
 </div>
 </div>
     
   `,
-  providers: [TransactionService]
+  providers: [TransactionService, TransactionDataService]
 })
-export class TransactionComponent implements OnChanges{ 
+export class TransactionComponent { 
     @Input() ual : string;
     transactions : Transaction[];
     
@@ -41,23 +41,11 @@ export class TransactionComponent implements OnChanges{
      
     }
     
-    ngOnChanges(changes: SimpleChanges) {
-        this.searchTransactions(changes['ual'].currentValue);
-  }
-    
     showTransactions(){
-       console.log('hello ' + this.ual);
-        this.txService.getTransactions()
-        .then(data =>{
-          this.transactions = data;
-        });
+    
+          this.transactions = this.txService.getTransactions();
+       
     }
     
-    searchTransactions(phrase : string){
-      //console.log(`searching for ${phrase}`);
-      this.txService.search(phrase)
-        .then(data =>{
-          this.transactions = data;
-        });
-    }
+    
 }

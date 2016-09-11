@@ -26,7 +26,7 @@ var TransactionDataService = (function () {
             { id: '20', type: 'BPay', amount: 20.5, accountId: '46013345679' },
             { id: '21', type: 'BPay', amount: 210, accountId: '46013345679' },
         ];
-        return { transactions: transactions };
+        return transactions;
     };
     return TransactionDataService;
 }());

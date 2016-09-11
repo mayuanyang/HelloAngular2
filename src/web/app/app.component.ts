@@ -8,7 +8,8 @@ import { Component, Input } from '@angular/core';
   <div class="panel-heading">App Component</div>
   <div class="panel-body">
     <div class="row">
-      <!--<transactions ual={{thisUal}}></transactions>-->
+      <transactions></transactions>
+      xxxxxx
     </div>
     <div class="row">
       <div class="col-md-6">
@@ -28,8 +29,5 @@ import { Component, Input } from '@angular/core';
   `
 })
 export class AppComponent { 
-  thisUal : string;
-    search(){
-      this.thisUal = "46012344433";
-    }
+  
 }

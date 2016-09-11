@@ -12,11 +12,10 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
 var app_component_1 = require('./app.component');
-//import { TransactionComponent } from './transaction.component';
+var transaction_component_1 = require('./transaction.component');
 var youtube_component_1 = require('./youtube.component');
 var observable_simple_component_1 = require('./observable-simple.component');
 var http_1 = require('@angular/http');
-//import { TransactionDataService }  from './transaction-data.service';
 var AppModule = (function () {
     function AppModule() {
     }
@@ -27,7 +26,7 @@ var AppModule = (function () {
                 forms_1.FormsModule,
                 http_1.HttpModule
             ],
-            declarations: [app_component_1.AppComponent, observable_simple_component_1.ObservableSimpleComponent, youtube_component_1.YoutubeComponent],
+            declarations: [app_component_1.AppComponent, transaction_component_1.TransactionComponent, observable_simple_component_1.ObservableSimpleComponent, youtube_component_1.YoutubeComponent],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

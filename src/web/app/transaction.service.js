@@ -9,34 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var http_1 = require('@angular/http');
+var transaction_data_service_1 = require('./transaction-data.service');
 require('rxjs/add/operator/toPromise');
 var TransactionService = (function () {
-    function TransactionService(http) {
-        this.http = http;
-        this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-        this.webapiUrl = 'app/transactions';
+    function TransactionService(txDataService) {
+        this.txDataService = txDataService;
     }
     TransactionService.prototype.getTransactions = function () {
-        return this.http.get(this.webapiUrl)
-            .toPromise()
-            .then(function (response) { return response.json().data; })
-            .catch(this.handleError);
-    };
-    TransactionService.prototype.search = function (term) {
-        return this.http
-            .get(this.webapiUrl + ("?accountId=" + term))
-            .toPromise()
-            .then(function (response) { return response.json().data; })
-            .catch(this.handleError);
-    };
-    TransactionService.prototype.handleError = function (error) {
-        console.error('An error occurred', error);
-        return Promise.reject(error.message || error);
+        return this.txDataService.createDb();
     };
     TransactionService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [http_1.Http])
+        __metadata('design:paramtypes', [transaction_data_service_1.TransactionDataService])
     ], TransactionService);
     return TransactionService;
 }());

@@ -13,6 +13,7 @@ import {Observable} from 'rxjs/Observable';
   <h3>{{result}} </h3>
   <button class="btn btn-primary" (click)="doWorkWithPromise()">Do Work With Promise</button>
   <button class="btn btn-primary" (click)="doWorkWithObservable()">Do Work With Observable</button>
+  <button class="btn btn-primary" (click)="observableWithFilter()">Observable With Filter</button>
   
   </div>
 </div>
@@ -38,5 +39,19 @@ export class ObservableSimpleComponent{
         });
         
         stream$.subscribe(value => this.result = <string>value);
+    }
+    
+    observableWithFilter(){
+        
+        let stream$ = new Observable(observer =>{
+            let count = 0;
+            let interval = setInterval(() => {
+                observer.next(count++);
+            }, 500)
+        });
+        
+        stream$.filter(value => (<number>value) % 2 ===0)
+        .subscribe(value => console.log(value) );
+    
     }
 }

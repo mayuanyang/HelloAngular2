@@ -12,13 +12,10 @@ var core_1 = require('@angular/core');
 var AppComponent = (function () {
     function AppComponent() {
     }
-    AppComponent.prototype.search = function () {
-        this.thisUal = "46012344433";
-    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'angular2-60mins',
-            template: "\n  <div class=\"container\">\n  <div class=\"panel panel-primary\">\n  <div class=\"panel-heading\">App Component</div>\n  <div class=\"panel-body\">\n    <div class=\"row\">\n      <!--<transactions ual={{thisUal}}></transactions>-->\n    </div>\n    <div class=\"row\">\n      <div class=\"col-md-6\">\n      <observable-simple></observable-simple>\n      </div>\n      <div class=\"col-md-6\">\n      bb\n      </div>\n      <div class=\"col-md-12\">\n        <youtube></youtube>\n      </div>\n    </div>\n  </div>\n  </div>\n</div>\n\n  "
+            template: "\n  <div class=\"container\">\n  <div class=\"panel panel-primary\">\n  <div class=\"panel-heading\">App Component</div>\n  <div class=\"panel-body\">\n    <div class=\"row\">\n      <transactions></transactions>\n      xxxxxx\n    </div>\n    <div class=\"row\">\n      <div class=\"col-md-6\">\n      <observable-simple></observable-simple>\n      </div>\n      <div class=\"col-md-6\">\n      bb\n      </div>\n      <div class=\"col-md-12\">\n        <youtube></youtube>\n      </div>\n    </div>\n  </div>\n  </div>\n</div>\n\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

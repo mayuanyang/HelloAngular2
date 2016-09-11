@@ -1,6 +1,6 @@
-import { InMemoryDbService } from 'angular2-in-memory-web-api';
-export class TransactionDataService implements InMemoryDbService {
-  createDb() {
+import {Transaction} from './transaction';
+export class TransactionDataService {
+  createDb() : Transaction[] {
     let transactions = [
      {id: '1', type: 'BPay', amount: 10, accountId : '46011345671'},
      {id: '2', type: 'BPay', amount: 11, accountId : '46011345671'},
@@ -24,6 +24,6 @@ export class TransactionDataService implements InMemoryDbService {
      {id: '20', type: 'BPay', amount: 20.5, accountId : '46013345679'},
      {id: '21', type: 'BPay', amount: 210, accountId : '46013345679'},
     ];
-    return {transactions};
+    return transactions;
   }
 }

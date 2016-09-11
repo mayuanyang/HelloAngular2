@@ -27,10 +27,20 @@ var ObservableSimpleComponent = (function () {
         });
         stream$.subscribe(function (value) { return _this.result = value; });
     };
+    ObservableSimpleComponent.prototype.observableWithFilter = function () {
+        var stream$ = new Observable_1.Observable(function (observer) {
+            var count = 0;
+            var interval = setInterval(function () {
+                observer.next(count++);
+            }, 500);
+        });
+        stream$.filter(function (value) { return value % 2 === 0; })
+            .subscribe(function (value) { return console.log(value); });
+    };
     ObservableSimpleComponent = __decorate([
         core_1.Component({
             selector: 'observable-simple',
-            template: "\n  <div class=\"col-md-12\">\n  <div class=\"panel panel-info\">\n  <div class=\"panel-heading\">Simple Observable</div>\n  <div class=\"panel-body\">\n    \n  <h3>{{result}} </h3>\n  <button class=\"btn btn-primary\" (click)=\"doWorkWithPromise()\">Do Work With Promise</button>\n  <button class=\"btn btn-primary\" (click)=\"doWorkWithObservable()\">Do Work With Observable</button>\n  \n  </div>\n</div>\n</div>\n    \n  ",
+            template: "\n  <div class=\"col-md-12\">\n  <div class=\"panel panel-info\">\n  <div class=\"panel-heading\">Simple Observable</div>\n  <div class=\"panel-body\">\n    \n  <h3>{{result}} </h3>\n  <button class=\"btn btn-primary\" (click)=\"doWorkWithPromise()\">Do Work With Promise</button>\n  <button class=\"btn btn-primary\" (click)=\"doWorkWithObservable()\">Do Work With Observable</button>\n  <button class=\"btn btn-primary\" (click)=\"observableWithFilter()\">Observable With Filter</button>\n  \n  </div>\n</div>\n</div>\n    \n  ",
             providers: []
         }), 
         __metadata('design:paramtypes', [])
