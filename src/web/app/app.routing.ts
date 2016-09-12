@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { TransactionComponent }      from './transaction.component';
 import { TransactionDetailComponent }      from './transaction-detail.component';
+import { YoutubeComponent }      from './youtube.component';
+import { ObservableSimpleComponent }      from './observable-simple.component';
 
 const appRoutes: Routes = [
   {
@@ -12,6 +14,14 @@ const appRoutes: Routes = [
   {
     path: 'details',
     component: TransactionDetailComponent
+  },
+  {
+    path: 'videos',
+    component: YoutubeComponent
+  },
+  {
+    path: 'observable',
+    component: ObservableSimpleComponent
   }
 ];
 

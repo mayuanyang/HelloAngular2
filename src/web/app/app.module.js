@@ -16,6 +16,7 @@ var transaction_component_1 = require('./transaction.component');
 var youtube_component_1 = require('./youtube.component');
 var observable_simple_component_1 = require('./observable-simple.component');
 var http_1 = require('@angular/http');
+var app_routing_1 = require('./app.routing');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -24,7 +25,8 @@ var AppModule = (function () {
             imports: [
                 platform_browser_1.BrowserModule,
                 forms_1.FormsModule,
-                http_1.HttpModule
+                http_1.HttpModule,
+                app_routing_1.routing
             ],
             declarations: [app_component_1.AppComponent, transaction_component_1.TransactionComponent, observable_simple_component_1.ObservableSimpleComponent, youtube_component_1.YoutubeComponent],
             bootstrap: [app_component_1.AppComponent]

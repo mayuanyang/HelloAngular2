@@ -8,6 +8,7 @@ import { ObservableSimpleComponent } from './observable-simple.component';
 import { HttpModule }    from '@angular/http';
 import { InMemoryWebApiModule } from 'angular2-in-memory-web-api';
 import { TransactionDataService }  from './transaction-data.service';
+import { routing }  from './app.routing';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { TransactionDataService }  from './transaction-data.service';
   [ 
     BrowserModule, 
     FormsModule, 
-    HttpModule
+    HttpModule,
+    routing
     ],
   declarations: [ AppComponent, TransactionComponent, ObservableSimpleComponent, YoutubeComponent ],
   bootstrap:    [ AppComponent ]
