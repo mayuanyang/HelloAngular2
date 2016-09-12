@@ -35,9 +35,8 @@ import { Component, Input } from '@angular/core';
       <router-outlet></router-outlet>      
     </div>
     </div>
-</div>
-
-  `
+</div>  `,
+styleUrls: ['app/site.css']
 })
 export class AppComponent { 
   

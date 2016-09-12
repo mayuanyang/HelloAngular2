@@ -14,7 +14,14 @@ import {Observable} from 'rxjs/Observable';
   <button class="btn btn-primary" (click)="doWorkWithPromise()">Do Work With Promise</button>
   <button class="btn btn-primary" (click)="doWorkWithObservable()">Do Work With Observable</button>
   <button class="btn btn-primary" (click)="observableWithFilter()">Observable With Filter</button>
-  
+  <div class="col-md-6 well">
+    <p>Observable</p>
+    <p *ngFor="let num of numbers">{{num}}</p>
+  </div>
+  <div class="col-md-6 well">
+    <p>Filtered Observable</p>
+    <p *ngFor="let num of filteredNumbers">{{num}}</p>
+  </div>
   </div>
 </div>
 </div>
@@ -23,7 +30,8 @@ import {Observable} from 'rxjs/Observable';
   providers: []
 })
 export class ObservableSimpleComponent{ 
-       
+       numbers : number[] = [];
+       filteredNumbers: number[] = [];
        result : string;
     doWorkWithPromise(){
         let promise = new Promise(resolve =>{
@@ -43,15 +51,18 @@ export class ObservableSimpleComponent{
     
     observableWithFilter(){
         
-        let stream$ = new Observable(observer =>{
+        let numbers$ = new Observable(observer =>{
             let count = 0;
             let interval = setInterval(() => {
-                observer.next(count++);
+                count+=1;
+                observer.next(count);
+                this.numbers.push(count);
             }, 500)
         });
         
-        stream$.filter(value => (<number>value) % 2 ===0)
-        .subscribe(value => console.log(value) );
+        let filteredNumber$ = numbers$.filter(value => (<number>value) % 2 ===0);
+        
+        filteredNumber$.subscribe(value => this.filteredNumbers.push(<number>value) );
     
     }
 }
