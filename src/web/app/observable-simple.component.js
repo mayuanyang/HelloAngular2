@@ -34,9 +34,11 @@ var ObservableSimpleComponent = (function () {
         var numbers$ = new Observable_1.Observable(function (observer) {
             var count = 0;
             var interval = setInterval(function () {
-                count += 1;
-                observer.next(count);
-                _this.numbers.push(count);
+                if (count <= 19) {
+                    count += 1;
+                    observer.next(count);
+                    _this.numbers.push(count);
+                }
             }, 500);
         });
         var filteredNumber$ = numbers$.filter(function (value) { return value % 2 === 0; });
@@ -45,7 +47,7 @@ var ObservableSimpleComponent = (function () {
     ObservableSimpleComponent = __decorate([
         core_1.Component({
             selector: 'observable-simple',
-            template: "\n  <div class=\"col-md-12\">\n  <div class=\"panel panel-info\">\n  <div class=\"panel-heading\">Simple Observable</div>\n  <div class=\"panel-body\">\n    \n  <h3>{{result}} </h3>\n  <button class=\"btn btn-primary\" (click)=\"doWorkWithPromise()\">Do Work With Promise</button>\n  <button class=\"btn btn-primary\" (click)=\"doWorkWithObservable()\">Do Work With Observable</button>\n  <button class=\"btn btn-primary\" (click)=\"observableWithFilter()\">Observable With Filter</button>\n  <div class=\"col-md-6 well\">\n    <p>Observable</p>\n    <p *ngFor=\"let num of numbers\">{{num}}</p>\n  </div>\n  <div class=\"col-md-6 well\">\n    <p>Filtered Observable</p>\n    <p *ngFor=\"let num of filteredNumbers\">{{num}}</p>\n  </div>\n  </div>\n</div>\n</div>\n    \n  ",
+            template: "\n  <div class=\"col-md-12\">\n  <div class=\"panel panel-info\">\n  <div class=\"panel-heading\">Simple Observable</div>\n  <div class=\"panel-body\">\n    \n  <h3>{{result}} </h3>\n  <div>\n    <button class=\"btn btn-primary\" (click)=\"doWorkWithPromise()\">Do Work With Promise</button>\n    <button class=\"btn btn-primary\" (click)=\"doWorkWithObservable()\">Do Work With Observable</button>\n    <button class=\"btn btn-primary\" (click)=\"observableWithFilter()\">Observable With Filter</button>\n  </div>\n  <div class=\"col-md-5 well\" style=\"margin:10 10 0 0;\">\n    <p>Observable</p>\n    <p *ngFor=\"let num of numbers\">{{num}}</p>\n  </div>\n  \n  <div class=\"col-md-5 well\"  style=\"margin:10 10 0 0;\">\n    <p>Filtered Observable</p>\n    <p *ngFor=\"let num of filteredNumbers\">{{num}}</p>\n  </div>\n  </div>\n</div>\n</div>\n    \n  ",
             providers: []
         }), 
         __metadata('design:paramtypes', [])

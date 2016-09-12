@@ -11,14 +11,17 @@ import {Observable} from 'rxjs/Observable';
   <div class="panel-body">
     
   <h3>{{result}} </h3>
-  <button class="btn btn-primary" (click)="doWorkWithPromise()">Do Work With Promise</button>
-  <button class="btn btn-primary" (click)="doWorkWithObservable()">Do Work With Observable</button>
-  <button class="btn btn-primary" (click)="observableWithFilter()">Observable With Filter</button>
-  <div class="col-md-6 well">
+  <div>
+    <button class="btn btn-primary" (click)="doWorkWithPromise()">Do Work With Promise</button>
+    <button class="btn btn-primary" (click)="doWorkWithObservable()">Do Work With Observable</button>
+    <button class="btn btn-primary" (click)="observableWithFilter()">Observable With Filter</button>
+  </div>
+  <div class="col-md-5 well" style="margin:10 10 0 0;">
     <p>Observable</p>
     <p *ngFor="let num of numbers">{{num}}</p>
   </div>
-  <div class="col-md-6 well">
+  
+  <div class="col-md-5 well"  style="margin:10 10 0 0;">
     <p>Filtered Observable</p>
     <p *ngFor="let num of filteredNumbers">{{num}}</p>
   </div>
@@ -54,13 +57,15 @@ export class ObservableSimpleComponent{
         let numbers$ = new Observable(observer =>{
             let count = 0;
             let interval = setInterval(() => {
-                count+=1;
-                observer.next(count);
-                this.numbers.push(count);
+                if(count <= 19){
+                    count+=1;
+                    observer.next(count);
+                    this.numbers.push(count);
+                }
             }, 500)
         });
         
-        let filteredNumber$ = numbers$.filter(value => (<number>value) % 2 ===0);
+        let filteredNumber$ = numbers$.filter(value => (<number>value) % 2 === 0);
         
         filteredNumber$.subscribe(value => this.filteredNumbers.push(<number>value) );
     
